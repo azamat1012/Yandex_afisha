@@ -2,6 +2,10 @@
 
 This script is used for adding favorite locations and see them on the map. 
 
+[demo version of a user_interface](https://aza004mat.pythonanywhere.com/)
+
+[demo version of an admin panel ](https://aza004mat.pythonanywhere.com/admin)
+
 ----
 
 ## <h2 style="text-align:center">Environment</h2> 
