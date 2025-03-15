@@ -1,22 +1,21 @@
-# Yandex afisha
+# Yandex Afisha
 
-This script is used for adding favorite locations and see them on the map. 
+Этот скрипт позволяет добавлять любимые места и просматривать их на карте.
 
-[demo version of a user_interface](https://aza004mat.pythonanywhere.com/)
+---
 
-[demo version of an admin panel ](https://aza004mat.pythonanywhere.com/admin)
+## <h2 style="text-align:center">Демо-версия</h2>
+Демо-версия сайта доступна по ссылке: [http://example.pythonanywhere.com/](http://example.pythonanywhere.com/)  
+*(Замените ссылку на реальную после деплоя)*
 
-----
+---
 
-## <h2 style="text-align:center">Environment</h2> 
------
-### Requirements
+## <h2 style="text-align:center">Окружение</h2>
+### Требования
 
+Для работы требуется установленная версия Python 3. Рекомендуется создать виртуальное окружение, чтобы не засорять основное пространство.
 
-Python3 must already be installed in your environments. You may create an virtual environement as well to not trash your memory space. 
-
- - To run your bot correctly you should install next requirements to your env:
-
+- Установите следующие зависимости в ваше окружение:
 
 1. Django==5.1.7
 2. django-admin-sortable2==2.2.4
@@ -24,66 +23,87 @@ Python3 must already be installed in your environments. You may create an virtua
 4. pillow==11.1.0
 5. python-environ==0.4.54
 
-
-
-or just but the next line of code in your bash terminal:
+Или выполните команду в терминале:
 
 ```bash
-  pip install -r requirements.txt
+pip install -r requirements.txt
 ```
 
-- In your created .env file you should add your keys
+В файле .env укажите кастомные переменные окружения:
+```bash
+SECRET_KEY="Ваш_секретный_ключ"
+DEBUG=True
+```
+Выполнение миграций
+```bash
+python manage.py migrate
+```
+
+Запуск
+```bash
+python manage.py runserver
+```
+
+Сайт будет доступен по адресу: <strong>http://127.0.0.1:8000/</strong> 
+
+<h2 style="text-align:center">Примечания</h2>
+Если вы хотите зайти в админ-панель, выполните следующие шаги:
+<br/>
+<br/>
+<br/>
+
+
+1. Создайте суперпользователя:
+```bash
+python manage.py createsuperuser
+```
+
+Введите имя пользователя, email и пароль.
+<br/>
+<br/>
+2. Перезапустите сервер:
 
 ```bash
-    SECRET_KEY="PUT_YOUR_SECRET_KEY"
-    DEBUG=True
+python manage.py runserver
 ```
------
-## Complete migrations
+<br/>
+<br/>
+3. Перейдите в админ-панель по адресу:
+<strong> http://127.0.0.1:8000/admin/</strong>
+
+В админ-панели вы можете добавлять новые места и видеть изменения на главной странице.
+
+<h2 style="text-align:center">Загрузка мест</h2>
+Для загрузки данных о местах используйте команду:
 
 ```bash
-    python manage.py migrate
-```
--------
-## Run 
-
-```bash
-    python manage.py runserver
+python manage.py load_place "URL_к_JSON_файлу"
 ```
 
+Пример URL:
+https://raw.githubusercontent.com/devmanorg/where-to-go-places/master/places/Лопатинский%20рудник.json
 
-Now your website will be running on the local host via address:
-http://127.0.0.1:8000
+<br/>
+<br/>
 
------
-##  <h2 style="text-align:center">Notes</h2> 
----
-
-If you'd like to go to the admin panel then follow next steps:
-
-1. Create super user for permission:
-
-```bash
-    python manage.py createsuperuser
+Пример JSON-файла с локацией
+```json
+{
+  "title": "Лопатинский рудник",
+  "description_short": "Карьер с бирюзовой водой и песчаными берегами.",
+  "description_long": "<p>Лопатинский рудник — это заброшенный фосфоритный карьер в Московской области...</p>",
+  "coordinates": {
+    "lng": 38.789,
+    "lat": 55.123
+  },
+  "imgs": [
+    "https://example.com/images/5daa6346a8294570ddeeaa79e2fbdaf3.jpg",
+    "https://example.com/images/d18243f83f4f75109ba18f5f57cc82fa.jpg"
+  ]
+}
 ```
-
-Then come up with passkeys
-
-2. Re-run the server
-
-```bash
-    python manage.py runserver
-```
-
-3. Go to the admin panel, it's located on:
-
-http://127.0.0.1:8000/admin
-
-
-There you're able to add a new info now and see the changes on the main page
-
-----
-## <h2 style="text-align:center">Project Goals</h2> 
----
-
-The code is written to simplify the user interface when they would like to see their fav places!
+<br/>
+<br/>
+<br/>
+<h2 style="text-align:center">Цели проекта</h2>
+Код написан для упрощения интерфейса пользователя, чтобы легко просматривать любимые места на карте!
