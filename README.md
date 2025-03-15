@@ -5,8 +5,7 @@
 ---
 
 ## <h2 style="text-align:center">Демо-версия</h2>
-Демо-версия сайта доступна по ссылке: [http://example.pythonanywhere.com/](http://example.pythonanywhere.com/)  
-*(Замените ссылку на реальную после деплоя)*
+Демо-версия сайта доступна по ссылке: [http://example.pythonanywhere.com/](https://aza004mat.pythonanywhere.com/)  
 
 ---
 
