@@ -1,12 +1,13 @@
 import os
 from pathlib import Path
+
 import environ
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 env = environ.Env(
     DEBUG=(bool, False),
-    SECRET_KEY=(str, 'default-secret-key'),
+    SECRET_KEY=str,
     ALLOWED_HOSTS=(list, ['localhost', '127.0.0.1']),
     DB=(str, 'sqlite'),
 )
