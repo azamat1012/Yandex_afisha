@@ -33,6 +33,15 @@ pip install -r requirements.txt
 SECRET_KEY="Ваш_секретный_ключ"
 DEBUG=True
 ```
+Генерировать безопасный SECRET_KEY можно с помощью Python:
+
+```python
+  from django.core.management.utils import get_random_secret_key
+  print(get_random_secret_key())
+```
+Этот код создаст строку вроде p@9v#k&x)mzq-5j!n2r+t8u$y_l0e*hw
+
+
 
 Для чего нужен:
 SECRET_KEY - это секретный ключ, который используется Django для поддержки безопасности сайта.
