@@ -24,7 +24,7 @@ def fetch_places_data(request):
             },
             'properties': {
                 'title': place.title,
-                'placeId': place.place_id,
+                'placeId': place.id,
                 'detailsUrl': reverse('place_detail', args=[place.id])
             }
         }
@@ -42,8 +42,8 @@ def place_detail(request, id):
     places_data = {
         'title': place.title,
         'imgs': [img.image.url for img in images],
-        'description_short': place.description_short,
-        'description_long': place.description_long,
+        'description_short': place.short_description,
+        'description_long': place.long_description,
         'coordinates': {
             'lat': place.latitude,
             'lng': place.longitude

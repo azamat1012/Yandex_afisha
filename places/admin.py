@@ -1,10 +1,10 @@
-from .models import Place, Image
-
 from django.contrib import admin
 from django.utils.html import format_html
+from adminsortable2.admin import SortableInlineAdminMixin, SortableAdminBase
+from .models import Place, Image
 
 
-class ImageInline(admin.TabularInline):
+class ImageInline(SortableInlineAdminMixin, admin.TabularInline):
     model = Image
     extra = 10
     readonly_fields = ['image_preview']
@@ -20,12 +20,9 @@ class ImageInline(admin.TabularInline):
             return "Фото отсутствует"
 
 
-
 @admin.register(Place)
-class PlaceAdmin(admin.ModelAdmin):
+class PlaceAdmin(SortableAdminBase, admin.ModelAdmin):
     inlines = [ImageInline]
-
-
 
 
 @admin.register(Image)
